@@ -1,0 +1,12 @@
+from langchain_google_genai import GoogleGenerativeAI
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+llm = GoogleGenerativeAI(model=os.getenv("GEMINI_MODEL"), google_api_key=os.getenv("GOOGLE_API_KEY"))
+
+query = input("Ask a question: ")
+
+for result in llm.stream(query):
+    print(result)
+
