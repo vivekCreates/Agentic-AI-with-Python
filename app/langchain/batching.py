@@ -15,7 +15,10 @@ responses = model.batch(
         "What is superstitions",
         "Why do we belives",
         "What is Jiddu krishanmurti's philosphy",
-    ]
+    ],
+    config={
+        "max_concurrency":5 # max only 5 parellel calls
+    }
 )
 
 for response in responses:
