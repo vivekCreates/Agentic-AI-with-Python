@@ -15,4 +15,5 @@ dependencies = [
     "langchain-groq>=1.1.2",
     "black>=26.1.0",
     "langchain-tavily>=0.2.17",
+    "langgraph>=1.0.9",
 ]
