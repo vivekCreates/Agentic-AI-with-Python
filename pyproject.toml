@@ -17,6 +17,7 @@ dependencies = [
     "langchain-tavily>=0.2.17",
     "langgraph>=1.0.9",
     "langchain-community>=0.4.1",
+    "pypdf>=6.9.1",
 ]
 
 [tool.uv.workspace]
