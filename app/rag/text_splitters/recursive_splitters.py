@@ -1,14 +1,14 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import PyPDFLoader
 
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=100,
-    chunk_overlap=0
+    chunk_overlap=1
 )
 
 
-data = TextLoader("app/rag/text_splitters/notes.txt")
+data = PyPDFLoader("app/rag/sample.pdf")
 docs = data.load()
 
 chunks = text_splitter.split_documents(docs)
-print(chunks)
+print(chunks[0])
