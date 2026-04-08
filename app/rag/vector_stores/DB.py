@@ -1,10 +1,12 @@
+import os
 from langchain_community.vectorstores import Chroma
-from langchain_groq import OpenAIEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
+from langchain_core.documents import Document
 
 load_dotenv()
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
-from langchain_core.documents import Document
 
 docs = [
     Document(page_content="Python is widely used in Artificial Intelligence.", metadata={"source": "AI_book"}),
@@ -12,7 +14,9 @@ docs = [
     Document(page_content="Neural networks are used in deep learning.", metadata={"source": "DL_book"}),
 ]
 
-embedding_model = OpenAIEmbeddings()
+embedding_model = GoogleGenerativeAIEmbeddings(
+    model="embedding-001"
+)
 
 vectorstore = Chroma.from_documents(
     documents = docs,
